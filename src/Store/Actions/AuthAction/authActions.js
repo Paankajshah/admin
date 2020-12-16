@@ -1,21 +1,21 @@
 import * as authTypes from "./authTypes";
-import { errorHandler } from "../errorAction/errorActions";
+import { errorHandler } from "../ErrorAction/errorActions";
 import axios from "axios";
 
 export const authenticate = (data) => {
   return (dispatch) => {
-    dispatch({ type: authActions.START_AUTHENTICATION });
+    dispatch({ type: authTypes.START_AUTHENTICATION });
     axios
       .post("/auth", { ...data })
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         dispatch({
-          type: authActions.AUTHENTICATION_SUCCESS,
+          type: authTypes.AUTHENTICATION_SUCCESS,
           token: res.data.token,
         });
       })
       .catch((err) => {
-        dispatch({ type: authActions.AUTHENTICATION_FAIL });
+        dispatch({ type: authTypes.AUTHENTICATION_FAIL });
         dispatch(
           errorHandler(
             err.response
@@ -29,7 +29,7 @@ export const authenticate = (data) => {
 
 export const authCheck = () => {
   return (dispatch) => {
-    dispatch({ type: authActions.START_AUTHENTICATION });
+    dispatch({ type: authTypes.START_AUTHENTICATION });
     const token = localStorage.getItem("token");
     if (token) {
       axios
@@ -39,7 +39,7 @@ export const authCheck = () => {
         .then((res) => {
           if (res.data.valid) {
             dispatch({
-              type: authActions.AUTHENTICATION_SUCCESS,
+              type: authTypes.AUTHENTICATION_SUCCESS,
               token: token,
             });
           } else {
@@ -58,6 +58,6 @@ export const authCheck = () => {
 export const logout = () => {
   return (dispatch) => {
     localStorage.removeItem("token");
-    dispatch({ type: authActions.LOG_OUT });
+    dispatch({ type: authTypes.LOG_OUT });
   };
 };

@@ -1,16 +1,16 @@
 import styled from "styled-components";
 import { Paper } from "@material-ui/core";
-
+import Avatar from "@material-ui/core/Avatar";
 export const Container = styled.div`
   height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   ${({ theme }) => `
             background : ${theme.palette.primary.main};
       `}
-`;
+`; 
 
 export const LoginBox = styled(Paper)`
   width: 400px;
@@ -41,8 +41,24 @@ export const LoginBox = styled(Paper)`
   }
 `;
 
-export const Logo = styled.img`
-  max-width: 120px;
-  height: auto;
-  margin-bottom: 1rem;
+export const Logo = styled(Paper)`
+  ${({ theme }) => `
+  marginTop: ${theme.spacing(8)};
+            background : ${theme.palette.primary.main};
+
+  `}
+  display: flex;
+  flexdirection: column;
+  alignitems: center;
+  margin-bottom: 15px;
+`;
+
+
+export const StyledAvatar = styled(Avatar)`
+ 
+&&{${({ theme }) => `
+  margin: ${theme.spacing(1)};
+  background: ${theme.palette.secondary.main};
+  `}}
+
 `;

@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Container, LoginBox, Logo } from "./styles";
+import { Container, LoginBox, Logo , StyledAvatar} from "./styles";
 import { Typography, IconButton, Button, Divider } from "@material-ui/core";
-import { StyledTextField } from "../../Components/UI/Inputs";
-import logo from "../../Assets/logo.png";
+import { StyledTextField } from "../../Components/UI/input";
+// import logo from "../../Assets/logo.png";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import Loader from "../../Components/UI/Loader";
+// import Loader from "../../Components/UI/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { authenticate } from "../../Store/Actions/AuthAction/authActions";
 import HelperText from "../../Components/UI/HelperText";
-
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 function Login() {
   const [email, setEmail] = useState({ value: "", error: false, errMsg: "" });
   const [password, setPassword] = useState({
@@ -92,16 +92,28 @@ function Login() {
 
   return (
     <Container>
+       <LoginBox elevation={24}>
+        {/* {loginLoader && <Loader />}  */}
+        <Logo elevation={0}>
+          <StyledAvatar>
+            <LockOutlinedIcon />
+          </StyledAvatar>
+        </Logo>
+        </LoginBox>
       <LoginBox elevation={24}>
-        {loginLoader && <Loader />}
-        <Logo src={logo} />
+        {/* {loginLoader && <Loader />}  */}
+        <Logo elevation={0}>
+          <StyledAvatar>
+            <LockOutlinedIcon />
+          </StyledAvatar>
+        </Logo>
         <Typography
           variant="body1"
           color="textPrimary"
           align="center"
           style={{ marginBottom: "0.7rem" }}
         >
-          Verisoft Ecommerce Management Platform
+         Bulk SMS System
         </Typography>
         <Typography
           variant="subtitle2"

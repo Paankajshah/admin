@@ -5,7 +5,7 @@ import App from "./Pages/App";
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
-import { rootReducer } from "./Store/Reducers/RootReducer/rootReducer";
+import { rootReducer } from "./Store/Reducer/RootReducer/rootReducer";
 import { BrowserRouter } from "react-router-dom";
 import axios from "axios";
 

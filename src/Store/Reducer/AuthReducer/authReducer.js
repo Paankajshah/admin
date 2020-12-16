@@ -1,5 +1,5 @@
-import * as authActions from "../Actions/authActions/authActions";
-import * as errorActions from "../Actions/errorAction/errorActions";
+import * as authActions from "../../Actions/AuthAction/authTypes";
+import * as errorActions from "../../Actions/ErrorAction/errorTypes";
 
 const initState = {
   token: null,

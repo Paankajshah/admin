@@ -1,4 +1,4 @@
-import * as errorActions from "../Actions/errorAction/errorActions";
+import * as errorActions from "../../Actions/ErrorAction/errorTypes";
 
 const initState = {
   createSuccess: false,
@@ -24,12 +24,7 @@ export const errorReducer = (state = initState, action) => {
         },
       };
 
-    case errorActions.CREATE_SUCCESS:
-      return {
-        ...state,
-        createSuccess: true,
-      };
-
+   
     case errorActions.SET_DEFAULT:
       return {
         ...initState,
