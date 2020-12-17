@@ -50,7 +50,7 @@ function Layout({ children }) {
 
   return (
     <Container>
-      {showSnackbar}
+      {/* {showSnackbar} */}
       {/* <Navigation /> */}
       <div style={{ flex: "1" }} className="rightContent">
         {/* <Appbar /> */}

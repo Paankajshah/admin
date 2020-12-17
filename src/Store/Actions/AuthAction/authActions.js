@@ -32,7 +32,11 @@ export const authCheck = () => {
     dispatch({ type: authTypes.START_AUTHENTICATION });
     const token = localStorage.getItem("token");
     if (token) {
-      axios
+      dispatch({
+        type: authTypes.AUTHENTICATION_SUCCESS,
+        token: token,
+      });
+      /* axios
         .get("/auth/check-token", {
           headers: { Authorization: `Bearer ${token}` },
         })
@@ -42,13 +46,13 @@ export const authCheck = () => {
               type: authTypes.AUTHENTICATION_SUCCESS,
               token: token,
             });
-          } else {
+          }  else {
             dispatch(logout());
           }
         })
         .catch((err) => {
           dispatch(logout());
-        });
+        });*/
     } else {
       dispatch(logout());
     }

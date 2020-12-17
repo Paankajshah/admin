@@ -20,6 +20,12 @@ export const LoginBox = styled(Paper)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  .flexCon {
+    .linkButton {
+      margin-top: 5px;
+  
+    }
+  }
   .passwordContainer {
     width: 100%;
     position: relative;

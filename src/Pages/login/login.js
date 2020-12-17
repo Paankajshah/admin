@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { authenticate } from "../../Store/Actions/AuthAction/authActions";
 import HelperText from "../../Components/UI/HelperText";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import { Link } from "react-router-dom";
 function Login() {
   const [email, setEmail] = useState({ value: "", error: false, errMsg: "" });
   const [password, setPassword] = useState({
@@ -92,14 +93,14 @@ function Login() {
 
   return (
     <Container>
-       <LoginBox elevation={24}>
+      <LoginBox elevation={24}>
         {/* {loginLoader && <Loader />}  */}
         <Logo elevation={0}>
           <StyledAvatar>
             <LockOutlinedIcon />
           </StyledAvatar>
         </Logo>
-        </LoginBox>
+      </LoginBox>
       <LoginBox elevation={24}>
         {/* {loginLoader && <Loader />}  */}
         <Logo elevation={0}>
@@ -113,7 +114,7 @@ function Login() {
           align="center"
           style={{ marginBottom: "0.7rem" }}
         >
-         Bulk SMS System
+          Bulk SMS System
         </Typography>
         <Typography
           variant="subtitle2"
@@ -165,18 +166,41 @@ function Login() {
             {showPassword ? <Visibility /> : <VisibilityOff />}
           </IconButton>
         </div>
-        <Button
-          color="primary"
-          size="medium"
-          disabled={loginLoader}
+        <div
+          className="flexCon"
           style={{
-            alignSelf: "flex-start",
-            textTransform: "capitalize",
-            marginBottom: "0.3rem",
+            display: "flex",
+            width: "100%",
+            justifyContent: "space-between",
           }}
         >
-          Forgot Password?
-        </Button>
+          <Button
+            color="primary"
+            size="medium"
+            disabled={loginLoader}
+            style={{
+              textTransform: "capitalize",
+              marginBottom: "0.3rem",
+            }}
+          >
+            Forgot Password?
+          </Button>
+          <div className="linkButton">
+            <Link
+              color="primary"
+              to="/register"
+              style={{
+                textTransform: "capitalize",
+                marginBottom: "0.3rem",
+                textDecoration: "none",
+                color: "rgb(0,0,255,0.8)",
+                
+              }}
+            >
+           sign up
+            </Link>
+          </div>
+        </div>
         <Button
           color="primary"
           size="small"
